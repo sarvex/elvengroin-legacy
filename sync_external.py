@@ -8,10 +8,10 @@ def sync_lib(folder, git_path, commit_sha):
     print("-" * (2*4 + len(folder) + 2))
     print("Origin:", git_path)
     if not os.path.isdir(folder):
-        os.system("git clone " + git_path)
+        os.system(f"git clone {git_path}")
     os.chdir(folder)
     os.system("git pull")
-    os.system("git checkout " + commit_sha)
+    os.system(f"git checkout {commit_sha}")
     os.system("git submodule update --init --recursive")
     # os.system("git pull " + commit_sha)
     os.chdir("..")
